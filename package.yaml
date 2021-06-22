@@ -1,0 +1,56 @@
+name:                Gram
+version:             0.1.0.0
+github:              "githubuser/Gram"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2021 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/Gram#readme>
+
+dependencies:
+- array >=0.5 && < 0.6
+- base >= 4.7 && < 5
+- containers >= 0.6
+- template-haskell >= 2.15 && < 3
+- deepseq >= 1.4 && < 2
+- mtl >= 2.2 && < 3
+- parallel >= 3.2 && < 4
+- parsec >= 3.1 && < 4
+- unordered-containers >= 0.2 && < 0.3
+
+library:
+  source-dirs: src
+
+executables:
+  gram:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -O2
+    - -threaded
+    - -rtsopts
+    dependencies:
+    - Gram
+
+tests:
+  Gram-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - Gram
